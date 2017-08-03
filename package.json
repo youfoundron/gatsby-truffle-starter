@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:rongierlach/gatsby-truffle-starter.git",
   "author": "Ron Gierlach <rongierlach@gmail.com>",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "gatsby": "^1.6.5"
+  }
 }
