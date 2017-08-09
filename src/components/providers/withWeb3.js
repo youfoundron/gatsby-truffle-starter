@@ -15,7 +15,7 @@ const withWeb3 = Cmp => class extends Component {
     const { web3, setWeb3, ...props } = this.props
     return web3
       ? <Cmp web3={web3} {...props} />
-      : null
+      : <p>Looking for web3 provider...</p>
   }
 }
 
