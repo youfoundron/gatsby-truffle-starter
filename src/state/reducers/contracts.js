@@ -3,8 +3,8 @@ import types from '../constants/actionTypes'
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    // case types.:
-    //   return action.payload
+    case types.SET_CONTRACTS:
+      return action.payload
     default:
       return state
   }
