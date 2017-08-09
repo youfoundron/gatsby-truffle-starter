@@ -9,7 +9,8 @@ const scopeTypes = (types = [], scope = 'App') => (
 
 const appTypes = [
   'WEB3_INITIALIZED',
-  'SET_ACCOUNTS'
+  'SET_ACCOUNTS',
+  'SET_CONTRACTS'
 ]
 
 export default {
