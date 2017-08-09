@@ -9,3 +9,8 @@ export const setAccounts = accounts => ({
   type: types.SET_ACCOUNTS,
   payload: accounts
 })
+
+export const setContracts = contracts => ({
+  type: types.SET_CONTRACTS,
+  payload: contracts
+})
