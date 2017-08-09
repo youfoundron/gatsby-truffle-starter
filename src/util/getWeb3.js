@@ -22,5 +22,6 @@ export default new Promise((resolve, reject) => {
     // wrap callback functions with promises
     promisifyAll(web3.eth, {suffix: 'Async'})
     resolve(web3)
+    window.web3 = web3
   })
 })
