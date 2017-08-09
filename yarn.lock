@@ -2839,7 +2839,7 @@ function-bind@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
 
-gatsby-link@^1.6.4:
+gatsby-link@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-1.6.5.tgz#a33273bc2d8bc9cc4df194afddbd6bec91f92812"
   dependencies:
