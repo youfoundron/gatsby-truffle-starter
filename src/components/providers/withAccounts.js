@@ -15,7 +15,7 @@ const withAccounts = Cmp => class extends Component {
     const { accountsExist, accounts, setAccounts, ...props } = this.props
     return accountsExist
       ? <Cmp accounts={accounts} {...props} />
-      : null
+      : <p>Getting accounts...</p>
   }
 }
 
