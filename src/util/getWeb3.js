@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-import { promisifyAll } from 'bluebird'
+import Promise, { promisifyAll } from 'bluebird'
 
 export default new Promise((resolve, reject) => {
   // Wait for loading completion to avoid race conditions with web3 injection timing.
@@ -21,6 +21,7 @@ export default new Promise((resolve, reject) => {
 
     // wrap callback functions with promises
     promisifyAll(web3.eth, {suffix: 'Async'})
+    promisifyAll(web3.net, {suffix: 'Async'})
     resolve(web3)
     window.web3 = web3
   })
