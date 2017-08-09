@@ -16,6 +16,7 @@
     "gatsby-link": "^1.6.5",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
     "truffle-contract": "^2.0.5",
     "web3": "^0.x.x"
   }
