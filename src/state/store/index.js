@@ -15,13 +15,12 @@ const actionSanitizer = action => ({
 })
 
 const middlewares = []
-// if (process.env.NODE_ENV !== 'production') {
-//   middlewares.push(createLogger({
-//     diff: true,
-//     collapsed: true,
-//     actionTransformer: actionSanitizer
-//   }))
-// }
+if (process.env.NODE_ENV !== 'production') {
+  middlewares.push(createLogger({
+    collapsed: true,
+    actionTransformer: actionSanitizer
+  }))
+}
 
 const middleware = applyMiddleware(...middlewares)
 
