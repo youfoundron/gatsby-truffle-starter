@@ -6,7 +6,7 @@ import getWeb3 from '../../util/getWeb3'
 import { setWeb3 } from '../../state/constants/actionCreators'
 
 const withWeb3 = Cmp => class extends Component {
-  componentWillMount () {
+  componentDidMount () {
     const { web3, setWeb3 } = this.props
     if (!web3) getWeb3.then(setWeb3)
   }

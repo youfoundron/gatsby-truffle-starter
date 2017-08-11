@@ -13,7 +13,7 @@ const contractPairs = [
 ]
 
 const withContracts = Cmp => class extends Component {
-  componentWillMount () {
+  componentDidMount () {
     const { web3, coinbase, contractsDeployed, setContracts, updateBalance } = this.props
     if (!contractsDeployed)
       getDeployedContracts(contractPairs, web3)

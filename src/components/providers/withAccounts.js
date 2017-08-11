@@ -6,7 +6,7 @@ import { hasAccounts } from '../../state/constants/selectors'
 import { setAccounts } from '../../state/constants/actionCreators'
 
 const withAccounts = Cmp => class extends Component {
-  componentWillMount () {
+  componentDidMount () {
     const { accountsExist, web3, setAccounts } = this.props
     if (!accountsExist) web3.eth.getAccountsAsync().then(setAccounts)
   }
