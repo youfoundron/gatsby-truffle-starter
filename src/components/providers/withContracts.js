@@ -4,8 +4,8 @@ import { compose, bindActionCreators } from 'redux'
 
 import MetaCoinJSON from '../../../build/contracts/MetaCoin.json'
 import getDeployedContracts from '../../util/getDeployedContracts'
-import { setContracts } from '../../state/constants/actionCreators'
-import { contractsAreDeployed } from '../../state/constants/selectors'
+import { setContracts, updateBalance } from '../../state/constants/actionCreators'
+import { contractsAreDeployed, getCoinbase } from '../../state/constants/selectors'
 
 // contract name & JSON
 const contractPairs = [
@@ -14,9 +14,13 @@ const contractPairs = [
 
 const withContracts = Cmp => class extends Component {
   componentWillMount () {
-    const { web3, contractsDeployed, setContracts } = this.props
+    const { web3, coinbase, contractsDeployed, setContracts, updateBalance } = this.props
     if (!contractsDeployed)
-      getDeployedContracts(contractPairs, web3).then(setContracts)
+      getDeployedContracts(contractPairs, web3)
+        .then(setContracts)
+        .then(({payload}) => payload.MetaCoin.getBalance.call(coinbase))
+        .then(balance => balance.toString(10))
+        .then(updateBalance)
   }
 
   render () {
@@ -29,12 +33,14 @@ const withContracts = Cmp => class extends Component {
 
 const mapStateToProps = state => ({
   web3: state.web3,
+  coinbase: getCoinbase(state),
   contracts: state.contracts,
   contractsDeployed: contractsAreDeployed(state, contractPairs)
 })
 
 const mapDispatchToProps = dispatch => ({
-  setContracts: bindActionCreators(setContracts, dispatch)
+  setContracts: bindActionCreators(setContracts, dispatch),
+  updateBalance: bindActionCreators(updateBalance, dispatch)
 })
 
 export default compose(
